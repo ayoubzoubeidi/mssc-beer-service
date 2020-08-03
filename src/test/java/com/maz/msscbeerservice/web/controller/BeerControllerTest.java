@@ -1,6 +1,7 @@
 package com.maz.msscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.maz.msscbeerservice.bootstrap.BeerLoader;
 import com.maz.msscbeerservice.domain.Beer;
 import com.maz.msscbeerservice.repositories.BeerRepository;
 import com.maz.msscbeerservice.services.BeerService;
@@ -82,7 +83,7 @@ class BeerControllerTest {
         return BeerDto.builder()
                 .beerName("Celtia")
                 .beerStyle(BeerStyleEnum.LAGER)
-                .upc(1000L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .price(new BigDecimal(25.1))
                 .quantityOnHand(30)
                 .build();
@@ -92,7 +93,7 @@ class BeerControllerTest {
         return Beer.builder()
                 .beerName("Celtia")
                 .beerStyle(BeerStyleEnum.LAGER.name())
-                .upc(1000L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .price(new BigDecimal(25.1))
                 .quantityToBrew(30)
                 .build();
