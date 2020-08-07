@@ -27,7 +27,8 @@ public class BeerController {
     public ResponseEntity<BeerPagedList> listBeers(@RequestParam(name = "pageNumber", required = false) Integer pageNumber,
                                                    @RequestParam(name = "pageSize", required = false) Integer pageSize,
                                                    @RequestParam(name = "beerName", required = false) String beerName,
-                                                   @RequestParam(name = "beerStyle", required = false) BeerStyleEnum beerStyle) {
+                                                   @RequestParam(name = "beerStyle", required = false) BeerStyleEnum beerStyle,
+                                                   @RequestParam(name = "showInventory", required = false, defaultValue = "false") Boolean showInventory) {
         if (pageNumber == null || pageNumber < 1 ) {
             pageNumber = DEFAULT_PAGE_NUMBER;
         }
@@ -36,13 +37,14 @@ public class BeerController {
             pageSize = DEFAULT_PAGE_SIZE;
         }
 
-        BeerPagedList beerPage = beerService.listBeers(beerName, beerStyle, PageRequest.of(pageNumber, pageSize));
+        BeerPagedList beerPage = beerService.listBeers(beerName, beerStyle, showInventory, PageRequest.of(pageNumber, pageSize));
         return new ResponseEntity<BeerPagedList>(beerPage, HttpStatus.OK);
     }
 
     @GetMapping("/{beerId}")
-    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId) {
-        return new ResponseEntity<>(beerService.getById(beerId), HttpStatus.OK);
+    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId,
+                                               @RequestParam(name = "inventory", required = false, defaultValue = "false") Boolean inventory) {
+        return new ResponseEntity<>(beerService.getById(beerId, inventory), HttpStatus.OK);
     }
 
     @PostMapping
