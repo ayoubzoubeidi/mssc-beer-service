@@ -8,6 +8,7 @@ import com.maz.msscbeerservice.web.model.BeerDto;
 import com.maz.msscbeerservice.web.model.BeerPagedList;
 import com.maz.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,11 @@ public class BeerServiceImpl implements BeerService {
 
     private final BeerMapper beerMapper;
 
+    @Cacheable(cacheNames = "beerCache", condition = "#showInventoryOnHand == false ")
     @Override
-    public BeerDto getById(UUID beerId, Boolean inventory) {
+    public BeerDto getById(UUID beerId, Boolean showInventoryOnHand) {
         BeerDto dto;
-        if (inventory)
+        if (showInventoryOnHand)
             dto = beerMapper.beerToBeerDto(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
         else
             dto = beerMapper.beerDtoToBeerWithoutInventory(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
@@ -51,8 +53,9 @@ public class BeerServiceImpl implements BeerService {
         return beerMapper.beerToBeerDto(beerRepository.save(beer));
     }
 
+    @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false ")
     @Override
-    public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, Boolean showInventory, PageRequest pageRequest) {
+    public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, Boolean showInventoryOnHand, PageRequest pageRequest) {
         BeerPagedList beerPagedList;
         Page<Beer> pageBeer;
         if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
@@ -65,7 +68,7 @@ public class BeerServiceImpl implements BeerService {
             pageBeer = beerRepository.findAll(pageRequest);
         }
 
-        if (showInventory) {
+        if (showInventoryOnHand) {
             beerPagedList = new BeerPagedList(
                     pageBeer
                             .stream()
