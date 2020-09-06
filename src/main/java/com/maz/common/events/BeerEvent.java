@@ -1,18 +1,17 @@
-package com.maz.msscbeerservice.events;
+package com.maz.common.events;
 
 import com.maz.msscbeerservice.web.model.BeerDto;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class BeerEvent implements Serializable {
 
     static final long serialVersionUID = -4691435634242525808L;
 
-    private final BeerDto beerDto;
+    private BeerDto beerDto;
 }
