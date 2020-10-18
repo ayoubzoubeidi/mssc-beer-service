@@ -1,4 +1,4 @@
-package com.maz.msscbeerservice.web.model;
+package com.maz.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
