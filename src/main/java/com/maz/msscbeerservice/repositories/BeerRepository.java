@@ -1,7 +1,7 @@
 package com.maz.msscbeerservice.repositories;
 
 import com.maz.msscbeerservice.domain.Beer;
-import com.maz.model.BeerStyleEnum;
+import com.maz.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,4 +14,6 @@ public interface BeerRepository extends JpaRepository<Beer, UUID> {
     Page<Beer> findAllByBeerName(String beerName, Pageable pageRequest);
     Page<Beer> findAllByBeerStyle(BeerStyleEnum beerStyleEnum, Pageable pageRequest);
     Optional<Beer> findBeerByUpc(String upc);
+
+    boolean existsByUpc(String upc);
 }

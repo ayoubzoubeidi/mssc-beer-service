@@ -1,4 +1,4 @@
-package com.maz.model;
+package com.maz.brewery.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

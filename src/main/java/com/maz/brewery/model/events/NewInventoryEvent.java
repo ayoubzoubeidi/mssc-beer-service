@@ -1,6 +1,6 @@
-package com.maz.model.events;
+package com.maz.brewery.model.events;
 
-import com.maz.model.BeerDto;
+import com.maz.brewery.model.BeerDto;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 

@@ -2,10 +2,10 @@ package com.maz.msscbeerservice.services.brewing;
 
 import com.maz.msscbeerservice.config.JmsConfig;
 import com.maz.msscbeerservice.domain.Beer;
-import com.maz.model.events.BrewBeerEvent;
-import com.maz.model.events.NewInventoryEvent;
+import com.maz.brewery.model.events.BrewBeerEvent;
+import com.maz.brewery.model.events.NewInventoryEvent;
 import com.maz.msscbeerservice.repositories.BeerRepository;
-import com.maz.model.BeerDto;
+import com.maz.brewery.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
+@Slf4j
 public class BrewBeerListner {
 
     private final BeerRepository beerRepository;

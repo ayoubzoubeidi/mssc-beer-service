@@ -1,8 +1,8 @@
 package com.maz.msscbeerservice.services;
 
-import com.maz.model.BeerDto;
-import com.maz.model.BeerPagedList;
-import com.maz.model.BeerStyleEnum;
+import com.maz.brewery.model.BeerDto;
+import com.maz.brewery.model.BeerPagedList;
+import com.maz.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.UUID;
