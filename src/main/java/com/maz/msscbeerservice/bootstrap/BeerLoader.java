@@ -3,12 +3,11 @@ package com.maz.msscbeerservice.bootstrap;
 import com.maz.msscbeerservice.domain.Beer;
 import com.maz.msscbeerservice.repositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-/*
 @Component
-*/
 public class BeerLoader implements CommandLineRunner {
 
     public static String BEER_1_UPC = "0631234200036";
@@ -29,17 +28,17 @@ public class BeerLoader implements CommandLineRunner {
     public void loadBeerobjects() {
         if (beerRepository.count() == 0) {
             beerRepository.save(Beer.builder()
-                    .beerName("Celtia")
+                    .beerName("WHEAT")
                     .quantityToBrew(200)
-                    .beerStyle("biere")
+                    .beerStyle("WHEAT")
                     .upc(BEER_1_UPC)
                     .minOnHand(3)
                     .price(new BigDecimal(22.3))
                     .build());
             beerRepository.save(Beer.builder()
-                    .beerName("Becks")
+                    .beerName("STOUT")
                     .quantityToBrew(400)
-                    .beerStyle("biere")
+                    .beerStyle("LAGER")
                     .upc(BEER_2_UPC)
                     .minOnHand(7)
                     .price(new BigDecimal(11.5))
@@ -47,7 +46,7 @@ public class BeerLoader implements CommandLineRunner {
             beerRepository.save(Beer.builder()
                     .beerName("Golden")
                     .quantityToBrew(200)
-                    .beerStyle("biere")
+                    .beerStyle("WHEAT")
                     .upc(BEER_3_UPC)
                     .minOnHand(7)
                     .price(new BigDecimal(20.3))
