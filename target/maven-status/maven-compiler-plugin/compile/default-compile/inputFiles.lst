@@ -8,8 +8,10 @@ C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\brewery\model\events\BrewBeerEvent.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\services\inventory\BeerInventoryRestTemplate.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\services\order\OrderValidationListener.java
+C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\services\inventory\BeerInventoryServiceLocalDiscoveryImpl.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\brewery\model\BeerStyleEnum.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\brewery\model\events\NewInventoryEvent.java
+C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\services\inventory\BeerInventoryFeignClient.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\brewery\model\events\OrderValidationResponse.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\web\mappers\BeerMapper.java
 C:\Users\ayoub\IdeaProjects\mssc-brewery-ws\mssc-beer-service\src\main\java\com\maz\msscbeerservice\services\inventory\BeerInventoryService.java
