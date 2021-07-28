@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 import java.util.UUID;
 
-import static com.maz.msscbeerservice.services.inventory.BeerInventoryRestTemplate.INVENTORY_PATH;
 
-@FeignClient(name = "inventory-service", fallback = InventoryServiceFeignClientFailOver.class)
-public interface BeerInventoryFeignClient {
+@FeignClient(value = "inventory-failover-service")
+public interface BeerInventoryFailOverFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = INVENTORY_PATH)
-    ResponseEntity<List<BeerInventoryDto>> getQOH(@PathVariable UUID beerId);
+    @RequestMapping(method = RequestMethod.GET, value = "/inventory-failover")
+    ResponseEntity<List<BeerInventoryDto>> getQOH();
 
 }
