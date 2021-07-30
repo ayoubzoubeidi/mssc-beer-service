@@ -8,12 +8,14 @@ com\maz\brewery\model\events\OrderValidationResponse.class
 com\maz\msscbeerservice\config\JmsConfig.class
 com\maz\msscbeerservice\web\mappers\DateMapper.class
 com\maz\brewery\model\BeerStyleEnum.class
+com\maz\msscbeerservice\services\inventory\BeerInventoryFailOverFeignClient.class
 com\maz\brewery\model\BeerOrderLineDto.class
 com\maz\msscbeerservice\services\BeerService.class
 com\maz\msscbeerservice\services\inventory\BeerInventoryRestTemplate$1.class
 com\maz\msscbeerservice\web\mappers\BeerMapperImpl.class
 com\maz\msscbeerservice\config\LocalDiscovery.class
 com\maz\brewery\model\BeerDto$BeerDtoBuilder.class
+com\maz\msscbeerservice\services\inventory\InventoryServiceFeignClientFailOver.class
 com\maz\msscbeerservice\services\inventory\BeerInventoryRestTemplate.class
 com\maz\msscbeerservice\web\controller\NotFoundException.class
 com\maz\brewery\model\BeerOrderLineDto$BeerOrderLineDtoBuilder.class
