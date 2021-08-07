@@ -1,6 +1,7 @@
 package com.maz.msscbeerservice.services.inventory;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Profile;
@@ -17,7 +18,7 @@ import java.util.UUID;
 
 @Profile("!local-discovery")
 @Slf4j
-@ConfigurationProperties(prefix = "maz.brewery", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "maz.brewery", ignoreUnknownFields = true)
 @Service
 public class BeerInventoryRestTemplate implements BeerInventoryService {
 
@@ -25,8 +26,12 @@ public class BeerInventoryRestTemplate implements BeerInventoryService {
     private final RestTemplate restTemplate;
     private String beerInventoryServiceHost;
 
-    public BeerInventoryRestTemplate(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
+    public BeerInventoryRestTemplate(RestTemplateBuilder restTemplateBuilder,
+                                     @Value("${maz.brewery.inventory-username}") String username,
+                                     @Value("${maz.brewery.inventory-password}") String password) {
+        this.restTemplate = restTemplateBuilder
+                .basicAuthentication(username, password)
+                .build();
     }
 
     public void setBeerInventoryServiceHost(String beerInventoryServiceHost) {
